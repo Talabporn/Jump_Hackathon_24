@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Add link to FontAwesome library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Interest</title>
+    <style>
+      body {
+        font-family: 'Sukhumvit Set', sans-serif;
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .interest {
+        width: 45%;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .interest:hover {
+        transform: scale(1.02);
+      }
+
+      .interest img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .interest div {
+        padding: 10px;
+        text-align: center;
+        background-color: #f3f6fb;
+      }
+
+      h2 {
+        color: #F86F03;
+        text-align: start;
+        font-size: 40px;
+        /* margin-top: 80px; */
+        margin-bottom: 0;
+      }
+
+      h4 {
+        color: #666;
+        text-align: start;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+
+      #searchBarContainer {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      #searchBar {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      #nextButtonContainer {
+        margin-top: 20px;
+      }
+
+      #nextButton {
+        background-color: #F86F03;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      #nextButton:hover {
+        background-color: #5a00cc;
+      }
+      .interest {
+        /* เพิ่มเงื่อนไขการแสดงหรือซ่อนด้วย display property */
+        display: block;
+      }
+      .interest img {
+        width: 100%; /* ทำให้รูปภาพเต็มความกว้างของพ่อคุณ .interest container */
+        height: 150px; /* ตั้งค่าสูงของรูปภาพเป็น 150px */
+        object-fit: cover; /* ใช้ object-fit ด้าน CSS  หาก*/
+      }
+      .interest div {
+    padding: 10px;
+    text-align: center;
+    background-color: #f3f6fb;
+    font-size: 25px; /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้นตามที่คุณต้องการ */
+}
+.interest.selected {
+    border: 3px solid #F86F03; /* เพิ่มขอบที่หนาขึ้นเมื่อถูกเลือก */
+    background-color: #F86F03; /* เปลี่ยนสีพื้นหลังเมื่อถูกเลือก */
+    color: #333; /* เปลี่ยนสีข้อความเป็นขาว */
+}
+.header-container{
+    margin-top: 50px;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <!-- <header>
+        <i class="fas fa-chevron-left"></i>
+        <i class="fas fa-chevron-right"></i>
+      </header> -->
+    </div>
+
+    <div class="header-container">
+      <h2>เลือกสิ่งที่คุณสนใจ</h2>
+      <h4>เลือกความสนใจของคุณ</h4>
+      <h4>เราจะสร้างเนื้อหาสำหรับคุณโดยเฉพาะ</h4>
+    </div>
+
+    <div id="searchBarContainer">
+      <input type="text" id="searchBar" placeholder="Search..." />
+    </div>
+
+    <div class="container">
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/donut.jpg" alt="Baking" />
+        <div>ทำขนม</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/hat.jpg" alt="Knit" />
+        <div>ถักไหมพรม</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/tree.JPG" alt="Gardening" />
+        <div>ปลูกต้นไม้</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/Yoga.JPG" alt="Yoga" />
+        <div>โยคะ</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/PlayMusic.JPG" alt="Music" />
+        <div>ฟังเพลง</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/Golf.JPG" alt="Golf" />
+        <div>ตีกอล์ฟ</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/KeepPets.JPG" alt="KeepPets " />
+        <div>เลี้ยงสัตว์</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/Temple.JPG" alt="เที่ยว" />
+        <div>ท่องเที่ยว</div>
+      </div>
+      <div class="interest" onclick="toggleInterest(this)">
+        <img src="/picture/run.JPG" alt="วิ่ง" />
+        <div>วิ่งมาราธอน</div>
+      </div>
+    </div>
+    <div id="nextButtonContainer">
+        <button id="nextButton" style="font-size: 25px;" onclick="navigateToNextPage()">ต่อไป</button>
+    </div>
+    <script>
+      function searchInterests() {
+        // ดึงคำค้นหาจาก input
+        var input = document.getElementById("searchBar").value.toLowerCase();
+        // ดึงทุก div ที่มี class="interest"
+        var interests = document.getElementsByClassName("interest");
+
+        // วน loop ทุก interest
+        for (var i = 0; i < interests.length; i++) {
+          var interest = interests[i];
+          var text = interest.innerText.toLowerCase(); // ดึงข้อความภายใน interest และทำให้เป็น lowercase
+
+          // เช็คว่าข้อความภายใน interest มี input ที่ค้นหาหรือไม่
+          if (text.includes(input)) {
+            interest.style.display = "block"; // แสดง interest นี้
+          } else {
+            interest.style.display = "none"; // ซ่อน interest นี้
+          }
+        }
+      }
+
+      // เพิ่ม event listener เมื่อมีการพิมพ์ใน input
+      document
+        .getElementById("searchBar")
+        .addEventListener("input", searchInterests);
+
+        function toggleInterest(element) {
+        element.classList.toggle("selected"); // เพิ่มหรือลบคลาส "selected" เมื่อคลิก
+    }
+    function navigateToNextPage() {
+        window.location.href = "menu.html"; // เปลี่ยนเส้นทางไปยัง workBasic1.html
+    }
+    </script>
+  </body>
+</html>

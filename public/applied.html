@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>สมัครแพ็คเกจสำเร็จ</title>
+    <style>
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            background-color: #F3F6FB;
+            padding: 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .success-message {
+            /* margin-top: 100px; */
+            background-color: #fff;
+            padding: auto;
+            padding: 30px;
+            border-radius: 10px;
+           /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            margin-top: 20px;
+        }
+        .check-icon {
+        font-size: 50px; /* เพิ่มขนาดไอคอน */
+        color:  rgb(41, 186, 44);
+      }
+
+        h1 {
+            color: #F86F03;
+            font-size: 36px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .next-button {
+            background-color: #F86F03;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* .next-button:hover {
+            background-color: #45a049;
+        }
+
+        .next-button:active {
+            background-color: #3e8e41;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">
+            <i class="fas fa-check-circle check-icon"></i>
+            <h1>ลงทะเบียนเรียบร้อยแล้ว</h1>
+            <p>ขอบคุณที่เข้าร่วมกับเรา</p>
+            <a class="next-button" onclick="fetchAPI()" style="font-size: 25px;">ไปยังหน้าหลัก</a>
+        </div>
+    </div>
+    <script>
+        async function fetchAPI() {
+        let fetchOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // resultCode: "20000",
+          // developerMessage: "Success",
+          // SMID: "2004006586",
+
+          body: JSON.stringify({
+            sender: "jumpth", // ผู้ส่ง SMS
+            receiver: "66631954349", // เบอร์โทรศัพท์ผู้รับ SMS
+            code: "93523700001", // รหัส SMS
+            ctype: "UTF-8", // ประเภทของเนื้อหา (UTF-8 หรืออื่น ๆ ตามที่ใช้)
+            content: "ท่านได้ลงทะเบียนเข้าร่วมกิจกรรมเรียบร้อยแล้ว", // เนื้อหาข้อความ SMS
+          }),
+        };
+
+        try {
+          const res = await fetch("http://localhost:8090/4WE/SMS", fetchOption);
+          const jsonObj = await res.json();
+          console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+
+          // ตรวจสอบสถานะการตอบกลับ
+          if (res.ok) {
+            alert("SMS Sent successfully!"); // แสดงข้อความเมื่อส่ง SMS สำเร็จ
+          } else {
+            alert("Failed to send SMS. Please try again later."); // แสดงข้อความเมื่อส่ง SMS ไม่สำเร็จ
+          }
+        } catch (err) {
+          console.log(err);
+          alert(
+            "An error occurred while sending SMS. Please check the console for details." // แสดงข้อความเมื่อเกิดข้อผิดพลาดในการส่ง SMS
+          );
+        }
+      }
+    </script>
+</body>
+</html>

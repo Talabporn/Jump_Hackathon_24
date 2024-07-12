@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+    <title>package_OTP</title>
+    <style>
+      body {
+        font-family: 'Sukhumvit Set', sans-serif;
+        background-color: #F3F6FB;
+        padding: 30px;
+        text-align: center;
+        /* margin: 50px; */
+      }
+
+      .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #F3F6FB;
+        /* padding: 20px; */
+        border-radius: 8px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+      }
+
+      .premium-header {
+        background-color: rgb(233, 187, 48);
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: left;
+        width: 100px;
+      }
+
+      .sub-title{
+        text-align: left;
+        font-size: 20px;
+      }
+      .price {
+        font-size: 40px;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0;
+        text-align: left;
+      }
+
+      .monthly {
+        text-align: left;
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .features {
+        text-align: left;
+      }
+
+      .feature {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      /* .coming-soon {
+        background-color: #e0ffe0;
+        border: 2px solid green;
+        border-radius: 8px;
+        padding: 5px 10px;
+        display: inline-block;
+        margin-bottom: 10px;
+      } */
+      .select-package-button {
+        background-color: #F86F03;
+        color: white;
+        border: none;
+        padding: 20px 20px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .header-workBasic {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* background-color: #fff; */
+        /* padding: 10px 20px; */
+        /* border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 20px;
+        font-size: 30px;
+        margin-top: 50px;
+      }
+
+      .header-workBasic .icon {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      .check-icon {
+        margin-right: 10px;
+        color:  rgb(41, 186, 44);
+      }
+      .package-content{
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+            <div class="header-workBasic">
+                <div class="header-workBasic-left" onclick="window.location.href = 'menu.html';">
+                <i class="fas fa-arrow-left icon"></i>
+                แพ็คเกจ
+              </div>
+              <!-- <i class="fas fa-bell notification"></i> -->
+            </div>
+    </div>
+    <div class="package-content">
+      <div class="premium-header">Premium</div>
+      <div class="sub-title">สำหรับพาร์ทเนอร์ที่ต้องการประชาสัมพันธ์ข้อมูล</div>
+      <div class="price">59 บาท</div>
+      <div class="monthly">ต่อสมาชิก ต่อเดือน</div>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-check-circle check-icon"></i>10 โพสต์ต่อเดือน
+        </div>
+        <div class="feature">
+            <i class="fas fa-check-circle check-icon"></i>เพิ่มโอกาสการประชาสัมพันธ์ <br> ให้ผู้ใช้งานเห็นมากขึ้น
+          </div>
+        <!-- <div class="feature">
+          <i class="fas fa-check-circle check-icon"></i>งานที่มีค่าตอบแทนที่สูงขึ้น
+        </div> -->
+        <div class="feature">
+          <i class="fas fa-check-circle check-icon"></i>ส่วนลดพิเศษจากพันธมิตร
+        </div>
+        <!-- <div class="feature">
+            <i class="fas fa-check-circle check-icon"></i>การให้คำปรึกษาสุขภาพออนไลน์
+          </div> -->
+        <!-- <div class="feature">
+          <i class="fas fa-check-circle check-icon"></i>การติดตามสุขภาพ
+        </div> -->
+      </div>
+    </div>
+      <button class="select-package-button" style="font-size: 25px;"onclick="window.location.href = 'confirmPhoneNum.html';">เลือกแพ็คเกจ</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>login_verify</title>
+    <style>
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            background-size: cover;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            background-color: rgba(248, 111, 3, 0.5); /* Adjust alpha value to make it lighter */
+        }
+
+        .container {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        .confirm-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 180px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #F86F03;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .link-text {
+            text-decoration: underline;
+            color: #F86F03;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #F86F03;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .select-package-button {
+            background-color: white;
+            color: #F86F03;
+            border: 2px solid #F86F03;
+            font-size: 20px;
+        }
+
+        .header-workBasic {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .header-workBasic .icon {
+            font-size: 32px;
+            color: #F86F03;
+            cursor: pointer;
+        }
+
+        .header-workBasic-left {
+            text-align: left;
+            font-size: 32px;
+            margin-top: 30px;
+        }
+
+        .icon {
+            font-size: 70px;
+            color: #F86F03;
+        }
+        .circle {
+            width: 200px; /* Adjust the size of the circles */
+            height: 200px; /* Adjust the size of the circles */
+            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            border-radius: 50%;
+            position: absolute;
+        }
+        .top-right {
+            top: -80px; /* Adjust the distance from the top */
+            right: -80px; /* Adjust the distance from the right */
+        }
+        .bottom-left {
+            bottom: -300px; /* Adjust the distance from the bottom */
+            left: -30px; /* Adjust the distance from the left */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confirm-container">
+            <i class="fa-solid fa-mobile-screen-button icon"></i>
+            <p>กรอกเบอร์โทรศัพท์ของท่าน <br> เพื่อเข้าใช้งาน</p>
+            <form id="verificationForm">
+                <label for="phoneNumber">เบอร์โทรศัพท์</label><br>
+                <input type="text" id="phoneNumber" name="phoneNumber" value="0631954349" required><br>
+                <div class="circle top-right"></div>
+            <div class="circle bottom-left"></div>
+                <button type="button" onclick="verifyNumber()" style="font-family: 'Sukhumvit Set', sans-serif; font-size: 20px;">เข้าใช้งาน</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        async function verifyNumber() {
+            const fetchOptions = {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjExMFh5QTN6SWQifQ.eyJpc3MiOiJodHRwczovL2FkbWQtc3RnLmFkbGRpZ2l0YWxzZXJ2aWNlLmNvbSIsInN1YiI6InRva2VuX2F1dGhlbnRpY2F0aW9uX2NvZGUiLCJhdWQiOiJESElpQ0c5V0hJUVpUQkYrQ3kzZ2dtaVp5cE5Zb1lqaE1pM3ZocTg0c2xZUnZWL2VreFUrOWc9PSIsImV4cCI6MTcyMDc1ODEwMiwiaWF0IjoxNzE5NzIxMzAyLCJqdGkiOiJNMFpQUVV0WFJXNHhVamR5U0VVNVRHMUVZMjB4TnpFNU56SXhNekF5MnhQbTg1d3dBNGtHMGk4c1hOYm16WCIsInBpZCI6Imd1ZXN0OmRtV0FBQUFBSE9WeXd0ZmQ6OWNiM2ZjNjViZGM3YjREMnZkUC82SWxGYyIsImNsaWVudCI6Ik9UQXdNREF3TURBd01EQTBORFEwTERSM1pYeENjbTkzYzJWeWZERXVNQzR3Iiwic3NpZCI6IjJ4UG04NXd3QTRrRzBpOHNYTmJtelgiLCJ1aWQiOiJkbVdIT1Z5d3RmZCIsImF1dCI6eyJ0eXBlIjoibXNpc2RuIiwiYWN0aW9uIjoibG9naW4iLCJsb2dpbl9jaGFubmVsIjoiYXV0b19nc21hIiwibmV0d29yayI6ImFpcyIsImlzX2F1dG9fcmVnaXN0ZXIiOmZhbHNlfSwibmJmIjoxNzE5NzIxMDAyLCJuZXR3b3JrX2RldGVjdGVkX251bWJlciI6IndjRVBMTDhIRndIQlBXYz0ifQ.mVL-zjaKESEUBx6D3UI1yt_b-TtN7s9UfeNbIDGoEQKD9x3ukGHBJV6ETjAAZ7Kay0nVOhtDeEXZXPFn4_UNkH1BX4QTze2jp9cAh_R7CrZh8C-z9Z6zXwTJz78ZQ6uGfRavNGTTYjsvjy5lR55mFSTqaiLlZY4FtRi6Is600KUHsNixSE3-krU_DFX98Addz7aA2-u7GWKo5AERj9xWtwxFEFBWg6JXCmZ7G8A1pFPALbJEYqmkUpUjhpXE7xAMiV1Y6-C9ri4ZvfmqYab-0IMkcMrJPBd8onW_nGfzwkKb9wYgFMvTXYRaStmPSnaoU153tLSwwWkJTuUziGwp6w',
+                    'Content-Type': 'application/json',
+                    'origin': 'https://api-stg.adldigitalservice.com'
+                },
+                body: JSON.stringify({
+                    "phoneNumber": "66631954349",
+                }),
+            };
+
+            try {
+                const res = await fetch("http://localhost:8090/4WE/NUMVERIFY", fetchOptions);
+                const jsonObj = await res.json();
+                console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+  
+                // ตรวจสอบสถานะการตอบกลับ
+                if (res.ok) {
+                    alert("Verify successfully!");
+                    window.location.href = "interest.html"; // Redirect to interest.html
+                } else {
+                    alert("Failed to Verify. Please try again later.");
+                }
+            } catch (err) {
+                console.log(err);
+                alert("An error occurred while verify. Please check the console for details.");
+            }
+        }
+    </script>
+</body>
+</html>

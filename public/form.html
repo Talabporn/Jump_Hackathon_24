@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มเข้าร่วมกิจกรรม</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sukhumvit+Set:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* .form-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 300px;
+
+            width: 100%;
+        } */
+
+        .form-container{
+            margin: 50px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group .checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group .checkbox input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .checkbox label {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>แบบฟอร์มเข้าร่วมกิจกรรม</h2>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="fullname">ชื่อ-นามสกุล:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+        <div class="form-group">
+            <label for="age">อายุ:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">เพศ:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">ชาย</option>
+                <option value="female">หญิง</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+        </div>
+        <!-- <div class="form-group">
+            <label for="address">ที่อยู่:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div> -->
+        <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์ติดต่อ:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="chronic">โรคประจำตัว:</label>
+            <input type="text" id="chronic" name="chronic">
+        </div>
+        <!-- <div class="form-group">
+            <label for="medications">ยาที่ใช้ประจำ:</label>
+            <input type="text" id="medications" name="medications">
+        </div> -->
+        <!-- <div class="form-group">
+            <label for="allergies">อาการแพ้ต่าง ๆ (ยา อาหาร หรืออื่น ๆ):</label>
+            <textarea id="allergies" name="allergies" rows="3"></textarea>
+        </div> -->
+        <div class="form-group">
+            <label for="emergency-contact">ชื่อผู้ติดต่อฉุกเฉิน:</label>
+            <input type="text" id="emergency-contact" name="emergency_contact" required>
+        </div>
+        <div class="form-group checkbox">
+            <input type="checkbox" id="sms-consent" name="sms_consent" required>
+            <label for="sms-consent">ขอความยินยอมในการส่ง SMS แจ้งเตือนกิจกรรมที่เข้ามาใหม่ๆ</label>
+        </div>
+        <div class="form-group">
+            <button type="submit">ส่งข้อมูล</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

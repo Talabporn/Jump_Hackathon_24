@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Work Basic</title>
+    <style>
+      body {
+        font-family: 'Sukhumvit Set', sans-serif;
+        background-color: #F3F6FB;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section {
+        margin-top: 20px;
+        background-color: #f3f6fb;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between; /* จัดตำแหน่งอยู่ด้านข้างกัน */
+        align-items: center; /* จัดให้กล่องข้อความกับข้อความอยู่ตรงกลาง */
+      }
+
+      .section-blur {
+        margin-top: 20px;
+        background-color: #f3f6fb;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between; /* จัดตำแหน่งอยู่ด้านข้างกัน */
+        align-items: center; /* จัดให้กล่องข้อความกับข้อความอยู่ตรงกลาง */
+        filter: blur(5px);
+      }
+      .block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .block img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px;
+      }
+
+      .block .content {
+        text-align: left;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+      }
+      .workBasic-text {
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+
+      .workBasic-text-mid{
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+      .header-workBasic-left {
+        justify-content: space-around;
+      }
+      .header-workBasic {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* margin-top: 30px; */
+        /* background-color: #fff; */
+        /* padding-top: 30px; */
+        /* border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .header-icon-burger{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #F86F03;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      .header-workBasic .icon {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+
+      /* .header-workBasic .title {
+            font-size: 100px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        } */
+
+      .header-workBasic .notification {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+      /* .filter-container {
+            display: flex;
+            
+            gap: 10px; /* ระยะห่างระหว่าง filter 
+        }
+        .filter {
+            padding: 5px;
+            border-radius: 20px;
+            border: 2px solid #F86F03; /* กรอบสีม่วง 
+            background-color: white; 
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        } */
+
+      .colored-text {
+        color: #F86F03;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .bold-text {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+      }
+      .container-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+            font-size: large;
+      }
+      .box {
+        font-weight: 600;
+            width: 45%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .box img, #cakeImage {
+            width: 100%;
+            height: 100px; /* Fixed height */
+            object-fit: cover; /* Crop image to fit the fixed height */
+            display: block;
+      }
+      .box .text {
+            padding: 15px;
+            text-align: center;
+      }
+      .box-blur{
+        filter: blur(2px);
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        width: 80%;
+        max-width: 400px; /* Adjust width as needed */
+        text-align: left;
+        display: none; /* Initially hidden */
+      }
+
+      .popup.active {
+        display: block;
+      }
+
+      .popup h2 {
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      .popup p {
+        color: #333;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .popup .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #333;
+        font-size: 20px;
+      }
+      .join-button {
+    background-color: #F86F03; /* Purple background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+.icon {
+            margin-right: 10px;
+            color: #F86F03;
+        }
+
+      .confirm-button {
+        background-color: #F86F03;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      h4{
+        font-size: 25px;
+      }
+
+    </style>
+  </head>
+<body>
+    <div class="container">
+        <div class="header-icon-burger" >
+            <i class="fas fa-bars burger-icon"onclick="goToMenu()"></i></i>
+            </div>
+        <div class="header-workBasic">
+          <div class="header-workBasic-left" onclick="window.location.href = 'menu.html';">
+            <i class="fas fa-arrow-left icon"></i>
+            งาน
+          </div>
+          <i class="fas fa-bell notification" onclick="openNotificationPopup()">
+        </i>
+        </div>
+        <!-- <div class="filter-container">
+          <div class="filter">ทั้งหมด</div>
+          <div class="filter">งานของคุณ</div>
+          <div class="filter">กิจกรรม</div>
+          <div class="filter">กิจกรรมของคุณ</div>
+        </div> -->
+        <div class="workBasic-text">
+          <p class="bold-text">เร็ว ๆ นี้</p>
+          <p class="colored-text">ดูทั้งหมด</p>
+        </div>
+    <div class="container-box">
+        <div class="box" onclick="openPopup('bananacake.jpg')">
+            <img id="cakeImage" src="/picture/bananacake.jpg" alt="รูปเค้กกล้วยหอม" />
+            <div class="text">ทำเค้ก<br>กล้วยหอม</div>
+        </div>
+        <div class="box">
+            <div class="box-blur" onclick="window.location.href='package.html'">
+                <img id="cakeImage" src="/picture/cookie2.jpg" alt="คุกกี้" />
+                <div class="text">ทำคุกกี้จัดเบรค</div>
+            </div>
+        </div>
+        <div class="box">
+            <img id="cakeImage" src="/picture/sock.jpg" alt="ถุงเท้า" />
+            <div class="text">ถักถุงเท้าเด็ก</div>
+        </div>
+        <div class="box" onclick="window.location.href='package.html'">
+            <div class="box-blur">
+            <img id="cakeImage" src="/picture/hat.jpg" alt="หมวก" />
+            <div class="text">ถักหมวก<br>ไหมพรม</div>
+        </div>
+        </div>
+    </div>
+        <div class="workBasic-text">
+                <p class="bold-text">งานของคุณ</p>
+                <p class="colored-text">ดูทั้งหมด</p>
+          </div>
+          <div class="container-box">
+        <div class="box">
+            <img id="cakeImage" src="/picture/bread.jpg" alt="ขนมปัง" />
+            <div class="text">อบขนมปัง</div>
+        </div>
+        <div class="box">
+            <img id="cakeImage" src="/picture/cookie.jpg" alt="คุกกี้" />
+            <div class="text">ทำคุกกี้</div>
+        </div>
+        <div class="box">
+            <img id="cakeImage" src="/picture/cupcake.jpg" alt="คัพเค้ก" />
+            <div class="text">อบคัพเค้ก</div>
+        </div>
+        <div class="box">
+            <img id="cakeImage" src="/picture/donut.jpg" alt="โดนัท" />
+            <div class="text">ทำโดนัท</div>
+        </div>
+        <!-- Notification Popup -->
+      <div class="popup" id="notificationPopup">
+        <span class="close-btn" onclick="closeNotificationPopup()">&times;</span>
+        <i class="fa-solid fa-envelope" style="font-size: 100px; text-align: center; display: block; margin: 0 auto; color: #F86F03;"></i>
+        <h2> 
+          เพื่อไม่ให้พลาดข่าวสาร
+        </h2>
+        <p>
+            โปรดยินยอมให้เราส่ง SMS ไปยังเบอร์โทรศัพท์ของท่าน เพื่อแจ้งเตือนกิจกรรมใหม่ๆ และไม่ลืมเข้าร่วมกิจกรรม
+        </p>
+        <p>ตรวจสอบหมายเลขโทรศัพท์ของท่าน</p>
+        <h4>063-195-4349</h4>
+        <button class="confirm-button" onclick="fetchAPI()">ยืนยัน</button>
+      </div>
+        <!-- Popup Content -->
+        <div class="popup" id="popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <img id="cakeImage" src="/picture/bananacake.jpg" alt="รูปเค้กกล้วยหอม" />
+            <h2>หวานหอมกับเค้กกล้วย</h2>
+            <p><i class="fa fa-map-marker-alt icon"></i>ศูนย์ประชุมแห่งชาติสิริกิต</p>
+            <p><b>รายละเอียด</b></p>
+            <p><i class="fa fa-birthday-cake icon"></i>จำนวน 100 ชิ้น</p>
+            <p><i class="fa fa-money-bill-wave icon"></i>ค่าตอบแทน 20 บาท/ชิ้น</p>
+            <p><i class="fa fa-calendar icon"></i>10 กรกฎาคม 2567 เวลา 16:00 นาฬิกา</p>
+            <p><i class="fa fa-user icon"></i><span>ผู้ใช้บริการ: นนท์ เผ่ารอด</span></p>
+            <p><i class="fa fa-phone icon"></i>ติดต่อสอบถามผ่าน LINE! เพิ่มบัญชีทางการเป็นเพื่อนแล้วสอบถามหรือขอคำปรึกษาผ่านห้องแชทได้เลย!</p>
+        <a href="https://lin.ee/vKmUP0y"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="36" border="0"></a>
+    </div>
+        </div>
+          </div>
+    <!-- </div>
+    </div> -->
+    <script>
+          async function fetchAPI() {
+        let fetchOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // resultCode: "20000",
+          // developerMessage: "Success",
+          // SMID: "2004006586",
+
+          body: JSON.stringify({
+            sender: "jumpth", // ผู้ส่ง SMS
+            receiver: "66631954349", // เบอร์โทรศัพท์ผู้รับ SMS
+            code: "93523700001", // รหัส SMS
+            ctype: "UTF-8", // ประเภทของเนื้อหา (UTF-8 หรืออื่น ๆ ตามที่ใช้)
+            content: "สวัสดีลูกค้า AIS", // เนื้อหาข้อความ SMS
+          }),
+        };
+
+        try {
+          const res = await fetch("http://localhost:8090/4WE/SMS", fetchOption);
+          const jsonObj = await res.json();
+          console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+
+          // ตรวจสอบสถานะการตอบกลับ
+          if (res.ok) {
+            alert("SMS Sent successfully!"); // แสดงข้อความเมื่อส่ง SMS สำเร็จ
+          } else {
+            alert("Failed to send SMS. Please try again later."); // แสดงข้อความเมื่อส่ง SMS ไม่สำเร็จ
+          }
+        } catch (err) {
+          console.log(err);
+          alert(
+            "An error occurred while sending SMS. Please check the console for details." // แสดงข้อความเมื่อเกิดข้อผิดพลาดในการส่ง SMS
+          );
+        }
+      }
+        function openPopup(imageName) {
+            document.getElementById('popup').classList.add('active');
+            document.getElementById('cakeImage').src = '/picture/' + imageName;
+        }
+    
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
+        }
+    
+        function goToMenu() {
+            window.location.href = 'menu.html';
+        }
+        function openNotificationPopup() {
+        document.getElementById("notificationPopup").classList.add("active");
+      }
+
+      function closeNotificationPopup() {
+        document.getElementById("notificationPopup").classList.remove("active");
+      }
+    </script>
+</body>
+</html>

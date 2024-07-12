@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form_SMS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sukhumvit+Set:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container{
+            margin: 50px;
+            font-size: 20px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-consent {
+    display: flex;
+    align-items: center; /* จัดให้ align ตรงกลางตามตัว checkbox และ label */
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.form-consent input[type="checkbox"] {
+    margin-right: 10px; /* ระยะห่างขวาของ checkbox จาก label */
+}
+.form-btn {
+    text-align: center; /* จัดให้ปุ่มอยู่ตรงกลางของ div */
+}
+
+.form-btn button {
+    padding: 12px 20px; /* กำหนดขนาด padding สำหรับปุ่ม */
+    background-color: #F86F03; /* สีพื้นหลังของปุ่ม */
+    color: #fff; /* สีตัวอักษร */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 8px; /* ขอบโค้ง */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนรูปลักษณ์เมื่อนำเมาส์ไปชี้ */
+    transition: background-color 0.3s ease; /* เพื่อทำให้การเปลี่ยนสีพื้นหลังมีความนุ่มนวล */
+    font-family: 'Sukhumvit Set', sans-serif;
+}
+
+/* .form-btn button:hover {
+    background-color: #0056b3; 
+} */
+
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>แบบฟอร์มเข้าร่วม</h2>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="fullname">ชื่อ-นามสกุล:</label>
+            <input type="text" id="fullname" name="fullname" value="สมชาย ใจดี" required>
+        </div>
+        <div class="form-group">
+            <label for="age">อายุ:</label>
+            <input type="number" id="age" name="age" value="35" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">เพศ:</label>
+            <select id="gender" name="gender" required>
+                <option value="male" selected>ชาย</option>
+                <option value="female">หญิง</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์ติดต่อ:</label>
+            <input type="tel" id="phone" name="phone" value="0812345678" required>
+        </div>
+        <div class="form-group">
+            <label for="chronic">โรคประจำตัว:</label>
+            <input type="text" id="chronic" name="chronic" value="โรคเบาหวาน">
+        </div>
+        <div class="form-group">
+            <label for="emergency-contact">ชื่อผู้ติดต่อฉุกเฉิน:</label>
+            <input type="text" id="emergency-contact" name="emergency_contact" value="สมหญิง ดีใจ" required>
+        </div>
+        <div class="form-consent">
+            <input type="checkbox" id="sms-consent" name="sms_consent">
+            <label for="sms-consent">ยินยอมให้เราส่ง SMS แจ้งเตือน<br>กิจกรรมใหม่ๆที่คุณอาจสนใจ</label>
+        </div>
+        <div class="form-btn">
+            <button type="button" onclick="window.location.href='applied.html'">ส่งข้อมูล</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

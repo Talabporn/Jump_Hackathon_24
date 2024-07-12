@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+    <title>กรอกรหัสยืนยัน</title>
+    <style>
+        body {
+          font-family: 'Sukhumvit Set', sans-serif;
+          background-color: #F3F6FB;
+            padding: 20px;
+            text-align: center;
+            /* margin-top: 150px; */
+        }
+
+        .container {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label{
+          font-size: 20px;
+        }
+
+        .confirm-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #F86F03;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .link-text {
+            text-decoration: underline;
+            color: #F86F03;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #F86F03;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box; /* สำคัญในการทำให้ปุ่มเต็มขนาด */
+   
+          }
+          .select-package-button{
+          background-color: white;
+          color: #F86F03;
+          /* border: 2px solid #F86F03; */
+          font-size: 25px;
+        }
+
+      .header-workBasic {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* background-color: #fff; */
+        /* padding: 10px 20px; */
+        /* border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .header-workBasic .icon {
+        font-size: 32px;
+        color: #F86F03;
+        cursor: pointer;
+      }
+      .header-workBasic-left{
+        text-align: left;
+        font-size: 32px;
+        margin-top: 30px;
+      }
+/* 
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="header-workBasic-left" onclick="window.location.href = 'package.html';">
+        <i class="fas fa-arrow-left icon"></i>
+      </div>
+        <div class="confirm-container">
+            <h1>กรอกรหัสยืนยัน</h1>
+            <p>เราได้ส่งรหัสยืนยัน<br>ไปยังเบอร์โทรศัพท์ของท่าน</p>
+            <form action="/subSuccess.html" method="GET">
+                <label for="confirmationCode" style="font-size: 25px;">รหัสยืนยัน</label><br>
+                <input type="text" id="confirmationCode" name="confirmationCode" required><br><br>
+                <button type="submit" style="font-size: 25px;" >ยืนยัน</button>
+            </form>
+            <span class="link-text" style="font-size: 25px;" onclick="fetchAPI()">ส่งรหัสยืนยันอีกครั้ง</span>
+        </div>
+        <!-- <button class="select-package-button" onclick="window.location.href = 'confirmPhoneNum.html';">ย้อนกลับ -->
+        </button>
+    </div>
+    <script>
+        async function fetchAPI() {
+          let fetchOption = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              msisdn: "66631954349", // หมายเลขโทรศัพท์ที่ต้องการส่ง OTP
+              service: "GS947", // รหัสบริการที่ถูกต้อง
+            }),
+          };
+  
+          try {
+            const res = await fetch(
+              "http://localhost:8090/4WE/OTP/SEND",
+              fetchOption
+            );
+            const jsonObj = await res.json();
+            console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+  
+            // ตรวจสอบสถานะการตอบกลับ
+            if (res.ok) {
+              alert("OTP Sent successfully!");
+            } else {
+              alert("Failed to send OTP. Please try again later.");
+            }
+          } catch (err) {
+            console.log(err);
+            alert(
+              "An error occurred while sending OTP. Please check the console for details."
+            );
+          }
+        }
+      </script>
+</body>
+</html>
+

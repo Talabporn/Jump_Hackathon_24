@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Community</title>
+    <style>
+      body {
+        font-family: "Sukhumvit Set", sans-serif;
+        background-color: #f3f6fb;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section {
+        margin-top: 20px;
+        background-color: #f3f6fb;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between; /* จัดตำแหน่งอยู่ด้านข้างกัน */
+        align-items: center; /* จัดให้กล่องข้อความกับข้อความอยู่ตรงกลาง */
+      }
+
+      .section-blur {
+        margin-top: 20px;
+        background-color: #f3f6fb;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between; /* จัดตำแหน่งอยู่ด้านข้างกัน */
+        align-items: center; /* จัดให้กล่องข้อความกับข้อความอยู่ตรงกลาง */
+        filter: blur(5px);
+      }
+      .block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .block img {
+        width: 70px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px;
+      }
+
+      .block .content {
+        text-align: left;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+      }
+      .workBasic-text {
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+
+      .workBasic-text-mid {
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+      .header-workBasic-left {
+        justify-content: space-around;
+      }
+      .header-workBasic {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* margin-top: 30px; */
+        /* background-color: #fff; */
+        /* padding-top: 30px; */
+        /* border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .header-icon-burger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #f86f03;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      .header-workBasic .icon {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+
+      /* .header-workBasic .title {
+            font-size: 100px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        } */
+
+      .header-workBasic .notification {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+      /* .filter-container {
+        display: flex;
+
+        gap: 10px; /* ระยะห่างระหว่าง filter
+      }
+      .filter {
+        padding: 5px;
+        border-radius: 20px;
+        border: 2px solid #F86F03; /* กรอบสีม่วง 
+        background-color: white;
+        color: #333;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      } */
+
+      .colored-text {
+        color: #f86f03;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .bold-text {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+      }
+      /* .container-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+      } */
+      /* .box {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      } */
+      .box img,
+      #cakeImage {
+        width: autp;
+        height: auto; /* Fixed height */
+        object-fit: cover; /* Crop image to fit the fixed height */
+        display: block;
+        margin-bottom: 20px;
+      }
+      .box .text {
+        padding: 15px;
+        text-align: center;
+      }
+      /* .box-blur{
+        filter: blur(2px);
+      } */
+      /* Popup styles */
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        width: 80%;
+        max-width: 400px; /* Adjust width as needed */
+        text-align: left;
+        display: none; /* Initially hidden */
+      }
+
+      .popup.active {
+        display: block;
+      }
+
+      .popup h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .popup p {
+        color: #333;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      .popup .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #333;
+        font-size: 20px;
+      }
+      .join-button {
+        background-color: #f86f03; /* Purple background color */
+        color: white; /* White text color */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding inside the button */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Cursor style */
+        font-size: 20px; /* Font size */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        font-family: "Sukhumvit Set", sans-serif;
+       
+      }
+      .confirm-button {
+        background-color: #f86f03;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      /* .confirm-button:hover {
+        background-color: #45a049;
+      } */
+      .OA-btn {
+        margin: 0px;
+        margin-top: 20px;
+      }
+      .icon {
+        margin-right: 10px;
+        color: #f86f03;
+      }
+      #size-pic-btn {
+        width: 250px; /* กำหนดความกว้างใหม่ */
+        height: auto; /* ให้ความสูงปรับตามความกว้าง */
+        justify-content: center;
+      }
+      .box img {
+        width: 100%; /* ทำให้รูปภาพเต็มกว้างของกล่อง */
+        height: auto; /* ทำให้รูปภาพปรับสูงตามอัตราส่วน */
+        object-fit: cover; /* ปรับภาพให้กรอบเต็มกล่อง */
+        display: block; /* ทำให้รูปภาพอยู่ตรงกลางของกล่อง */
+        border-radius: 8px; /* มุมโค้งขอบ */
+        margin-bottom: 10px; /* ระยะห่างระหว่างกล่อง */
+      }
+
+      #map {
+        width: 100%;
+        max-width: 500px;
+        height: 30vh;
+        /* margin-top: 20px;  */
+        border-top: 5px solid #f3f6fb; /* กรอบด้านบนสีเขียว 10px */
+        border-left: 10px solid #f3f6fb; /* กรอบด้านซ้ายสีเขียว 10px */
+        border-right: 10px solid #f3f6fb; /* กรอบด้านขวาสีเขียว 10px */
+        margin-bottom: 20px;
+        box-sizing: border-box; /* จะทำให้ border นับเข้าไปในความกว้างและความสูงทั้งหมด */
+      }
+
+      #content {
+        /* background-color: #f0f0f0; */
+        padding: 20px;
+        text-align: center;
+        max-width: 90%; /* Adjusted max-width for better responsiveness */
+        width: 100%;
+        /* margin: 10px; */
+        /* border-radius: 8px; /* Added border-radius for a modern look */
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added shadow for depth  */
+      }
+      p {
+        font-family: "Sukhumvit Set", sans-serif;
+        font-size: 32px;
+        text-align: start;
+        margin: 0;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+      .lo-container {
+        max-width: 400px;
+        margin: 0;
+        /* background-color: #f9f9f9; */
+        padding: 20px;
+        border-radius: 10px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+      }
+      .lo-container p {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-icon-burger">
+        <i class="fas fa-bars burger-icon" onclick="goToMenu()"></i>
+      </div>
+      <div class="header-workBasic">
+        <div
+          class="header-workBasic-left"
+          onclick="window.location.href = 'menu.html';"
+        >
+          <i class="fas fa-arrow-left icon"></i>
+          ชุมชน
+        </div>
+        <i class="fas fa-bell notification" onclick="openNotificationPopup()">
+        </i>
+      </div>
+      <div id="map"></div>
+      <div class="workBasic-text">
+        <p class="bold-text">ใกล้คุณ</p>
+        <p class="colored-text">ดูทั้งหมด</p>
+      </div>
+      <div class="container-box">
+        <div class="box" onclick="openPopup('banner1.png')">
+          <img src="/picture/banner1.png" alt="ออกกำลังกาย" />
+        </div>
+        <div class="box" onclick="openPopup('banner2.png')">
+          <img src="/picture/banner2.png" alt="วิ่ง" />
+        </div>
+        <div class="box" onclick="openPopup('banner3.png')">
+          <img src="/picture/banner3.png" alt="ปลูกต้นไม้" />
+        </div>
+      </div>
+
+      <!-- Popup Content -->
+      <div class="popup" id="popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img id="size-pic-btn" src="/picture/banner2.png" alt="วิ่ง" />
+        <h2> <i class="fa-solid fa-users" style="color: #f86f03;"></i> 45/100 สมาชิก</h2>
+        <p>ไม่ว่าคุณจะวิ่งเพื่อสุขภาพ หรือวิ่งเพื่อความสนุก ที่นี่คือที่ที่คุณจะพบเพื่อนร่วมทางที่พร้อมจะวิ่งไปพร้อมกับคุณ ร่วมแชร์ประสบการณ์ แบ่งปันเทคนิค และเข้าร่วมกิจกรรมวิ่งต่างๆ</p>
+        <button
+          class="join-button"
+          onclick="window.location.href='formdummy.html'"
+        >
+          เข้าร่วมชุมชน
+        </button>
+      
+        <p>
+          <i class="fa fa-phone icon"></i> ติดต่อสอบถามผ่าน LINE!
+          เพิ่มบัญชีทางการได้เลย!
+        </p>
+        <div class="OA-btn">
+          <a href="https://lin.ee/VKoMDWb"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="36" border="0"></a>
+        </div>
+      
+        <!-- <a href="https://lin.ee/vKmUP0y"> 
+          <img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"alt="เพิ่มเพื่อน"/>
+         </a>
+      </div> -->
+
+      <!-- Notification Popup -->
+      <div class="popup" id="notificationPopup">
+        <span class="close-btn" onclick="closeNotificationPopup()"
+          >&times;</span
+        >
+        <i
+          class="fa-solid fa-envelope"
+          style="
+            font-size: 100px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            color: #f86f03;
+          "
+        ></i>
+        <h2>เพื่อไม่ให้พลาดข่าวสาร</h2>
+        <p>
+          โปรดยินยอมให้เราส่ง SMS ไปยังเบอร์โทรศัพท์ของท่าน
+          เพื่อแจ้งเตือนกิจกรรมใหม่ๆ และไม่ลืมการเข้าร่วมกิจกรรม
+        </p>
+        <p>ตรวจสอบหมายเลขโทรศัพท์ของท่าน</p>
+        <p>063-195-4349</p>
+        <button class="confirm-button" onclick="fetchAPI()">ยืนยัน</button>
+      </div>
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFRESGQRISw2BUVVWGK2QIcdesHbUJqKU&callback=initMap"
+      defer
+    >
+  </script>
+    <script>
+      async function fetchAPI() {
+        let fetchOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // resultCode: "20000",
+          // developerMessage: "Success",
+          // SMID: "2004006586",
+
+          body: JSON.stringify({
+            sender: "jumpth", // ผู้ส่ง SMS
+            receiver: "66631954349", // เบอร์โทรศัพท์ผู้รับ SMS
+            code: "93523700001", // รหัส SMS
+            ctype: "UTF-8", // ประเภทของเนื้อหา (UTF-8 หรืออื่น ๆ ตามที่ใช้)
+            content: "ไม่พลาดกิจกรรมดีๆ", // เนื้อหาข้อความ SMS
+          }),
+        };
+
+        try {
+          const res = await fetch("http://localhost:8090/4WE/SMS", fetchOption);
+          const jsonObj = await res.json();
+          console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+
+          // ตรวจสอบสถานะการตอบกลับ
+          if (res.ok) {
+            alert("SMS Sent successfully!"); // แสดงข้อความเมื่อส่ง SMS สำเร็จ
+          } else {
+            alert("Failed to send SMS. Please try again later."); // แสดงข้อความเมื่อส่ง SMS ไม่สำเร็จ
+          }
+        } catch (err) {
+          console.log(err);
+          alert(
+            "An error occurred while sending SMS. Please check the console for details." // แสดงข้อความเมื่อเกิดข้อผิดพลาดในการส่ง SMS
+          );
+        }
+      }
+      function openPopup(imageName) {
+        document.getElementById("popup").classList.add("active");
+        document.getElementById("size-pic-btn").src = "/picture/" + imageName;
+      }
+
+      function closePopup() {
+        document.getElementById("popup").classList.remove("active");
+      }
+
+      function openNotificationPopup() {
+        document.getElementById("notificationPopup").classList.add("active");
+      }
+
+      function closeNotificationPopup() {
+        document.getElementById("notificationPopup").classList.remove("active");
+      }
+
+      function goToMenu() {
+        window.location.href = "menu.html";
+      }
+      let map;
+      let infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 15,
+        });
+        infoWindow = new google.maps.InfoWindow();
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              };
+              infoWindow.setPosition(pos);
+              infoWindow.setContent("Location found.");
+              infoWindow.open(map);
+              map.setCenter(pos);
+            },
+            () => {
+              handleLocationError(true, infoWindow, map.getCenter());
+            }
+          );
+        } else {
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+    </script>
+  </body>
+</html>

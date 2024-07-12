@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+    <title>activity</title>
+    <style>
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            background-color: #F3F6FB;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+           
+        }
+        .post {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+        }
+        .post-header img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .post-body {
+            margin-top: 20px;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .like-icon {
+            cursor: pointer;
+            color: #e74c3c;
+        }
+        .comment-section {
+            margin-top: 10px;
+        }
+        .comment-section textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            resize: none;
+        }
+        .comment {
+            margin-top: 5px;
+            color: #888;
+        }
+        h2 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-top: 0;
+      }
+      .workBasic-text {
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+
+      .workBasic-text-mid{
+        display: flex;
+        flex-direction: row; /* วางข้อความต่อเนื่องจากหน้าไปหลัง */
+        align-items: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+        justify-content: space-between;
+      }
+      .header-workBasic-left {
+        justify-content: space-around;
+      }
+      .header-workBasic {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+      .header-icon-burger{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #F86F03;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      .header-workBasic .icon {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+
+      /* .header-workBasic .title {
+            font-size: 100px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        } */
+
+      .header-workBasic .notification {
+        font-size: 32px;
+        color: black;
+        cursor: pointer;
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        width: 80%;
+        max-width: 400px; /* Adjust width as needed */
+        text-align: left;
+        display: none;
+      }
+
+      .popup.active {
+        display: block;
+      }
+
+      .popup h2 {
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      .popup p {
+        color: #333;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .popup .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #333;
+        font-size: 20px;
+      }
+
+      .line-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #fff;
+        background-color: #F86F03;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+      }
+      .fas {
+        color: #F86F03; /* เปลี่ยนสีตามที่ต้องการ */
+        margin-right: 8px;
+    }
+    .blurred {
+    filter: blur(5px); /* Adjust blur amount as needed */
+    pointer-events: none; /* Prevent clicks on blurred elements */
+    opacity: 0.7; /* Adjust opacity for blur effect */
+    }
+    .blurred-clickable {
+    pointer-events: auto; /* Allow clicks on blurred elements */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-icon-burger">
+            <i class="fas fa-bars burger-icon"onclick="goToMenu()"></i></i>
+            </div>
+        <div class="header-workBasic">
+          <div class="header-workBasic-left"onclick="window.location.href = 'menu.html';">
+            <i class="fas fa-arrow-left icon"></i>
+            กิจกรรม
+          </div>
+          <i class="fas fa-bell notification" onclick="openNotificationComPopup()">
+        </i>
+        </div>
+        <!-- Post 1 -->
+        <div class="post" onclick="openPopup('popup1')">
+            <div class="post-header">
+                <img src="/picture/profileicon.png" alt="User 1">
+                <div>
+                    <strong>ทีม CSR</strong>
+                    <p>7 กรกฎาคม 2567</p>
+                </div>
+            </div>
+            <div class="post-body">
+                <p>เรากำลังมองหาผู้สูงอายุที่สนใจเข้าร่วมกิจกรรมการปลูกป่าในวันที่ 15 กรกฎาคมนี้ 🌱 มาร่วมสร้างสรรค์ธรรมชาติกับเรา! #CSR</p>
+                <img src="/picture/csrtree.png" alt="Planting Trees">
+            </div>
+            <div class="post-footer">
+                <span class="like-icon">❤️ 123</span>
+                <div class="comment">
+                    12 ความคิดเห็น
+                </div>
+            </div>
+        </div>
+        <!-- Post 2 -->
+<div class="post" onclick="goToConfirmPage()">
+    <div class="post-header">
+        <img src="/picture/profileicon.png" alt="User 1">
+        <div>
+            <strong>ทีม CSR</strong>
+            <p>7 กรกฎาคม 2567</p>
+        </div>
+    </div>
+    <div class="post-body">
+        <p>กิจกรรมทำความสะอาดชายหาดจะจัดขึ้นในวันที่ 20 กรกฎาคมนี้ 🏖️ ผู้สูงอายุที่สนใจเข้าร่วมกรุณาลงชื่อใต้โพสต์นี้ #CSR</p>
+        <img src="/picture/csrsea.png" alt="Beach Cleanup">
+    </div>
+    <div class="post-footer">
+        <span class="like-icon">❤️ 85</span>
+        <div class="comment">
+            8 ความคิดเห็น
+        </div>
+    </div>
+</div>
+        <!-- Post 3 -->
+        <!-- <div class="post" onclick="openPopup('popup3')">
+            <div class="post-header">
+                <img src="/picture/profileicon.png" alt="User 1">
+                <div>
+                    <strong>ทีม CSR</strong>
+                    <p>7 กรกฎาคม 2567</p>
+                </div>
+            </div>
+            <div class="post-body">
+                <p>มาร่วมกันสร้างความเปลี่ยนแปลงกับกิจกรรมการสร้างแปลงผักสวนครัวในวันที่ 25 กรกฎาคมนี้ 🥕 มาร่วมกันปลูกผักเพื่อสุขภาพที่ดี #CSR</p>
+                <img src="/picture/csrcarrot.png" alt="Vegetable Garden">
+            </div>
+            <div class="post-footer">
+                <span class="like-icon">❤️ 98</span>
+                <div class="comment">
+                    10 ความคิดเห็น
+                </div>
+            </div>
+        </div> -->
+        <!-- Post 4 -->
+        <div class="post" onclick="openPopup('popup4')">
+            <div class="post-header">
+                <img src="/picture/profileicon.png" alt="User 1">
+                <div>
+                    <strong>ทีม CSR</strong>
+                    <p>7 กรกฎาคม 2567</p>
+                </div>
+            </div>
+            <div class="post-body">
+                <p>ร่วมกับเราสอนเด็กๆ ในวันที่ 30 กรกฎาคมนี้ 📚 ผู้สูงอายุที่สนใจเข้าร่วมกรุณาลงชื่อใต้โพสต์นี้ #CSR</p>
+                <img src="/picture/csrlearn.png" alt="Teaching Children">
+            </div>
+            <div class="post-footer">
+                <span class="like-icon">❤️ 45</span>
+                <div class="comment">
+                    5 ความคิดเห็น
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 1 -->
+<div id="popup1" class="popup">
+    <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
+    <h2>กิจกรรมปลูกป่า</h2>
+    <p><i class="fas fa-calendar-alt"></i> วันที่: 15 กรกฎาคม 2567</p>
+    <p><i class="fas fa-clock"></i> เวลา: 9:00 - 12:00 น.</p>
+    <p><i class="fas fa-users"></i> จำนวนที่เปิดรับ: 20 คน</p>
+    <p><i class="fas fa-user"></i> ชื่อผู้จัดงาน: ทีม CSR</p>
+    <p><i class="fas fa-map-marker-alt"></i> สถานที่: 1177 ถนนพหลโยธิน เขตพญาไท กรุงเทพมหานคร</p>
+    <a href="formdummy.html" class="line-button">เข้าร่วมกิจกรรม</a>
+</div>
+
+<!-- Popup 2 -->
+<div id="popup2" class="popup">
+    <span class="close-btn" onclick="closePopup('popup2')">&times;</span>
+    <h2>กิจกรรมทำความสะอาดชายหาด</h2>
+    <p><i class="fas fa-calendar-alt"></i> วันที่: 20 กรกฎาคม 2567</p>
+    <p><i class="fas fa-clock"></i> เวลา: 9:00 - 12:00 น.</p>
+    <p><i class="fas fa-users"></i> จำนวนที่เปิดรับ: 30 คน</p>
+    <p><i class="fas fa-user"></i> ชื่อผู้จัดงาน: ทีม CSR</p>
+    <p><i class="fas fa-map-marker-alt"></i> สถานที่: 1177 ถนนพหลโยธิน เขตพญาไท กรุงเทพมหานคร</p>
+    <a href="formdummy.html" class="line-button">เข้าร่วมกิจกรรม</a>
+</div>
+
+<!-- Popup 3 -->
+<div id="popup3" class="popup">
+    <span class="close-btn" onclick="closePopup('popup3')">&times;</span>
+    <h2>กิจกรรมสร้างแปลงผักสวนครัว</h2>
+    <p><i class="fas fa-calendar-alt"></i> วันที่: 25 กรกฎาคม 2567</p>
+    <p><i class="fas fa-clock"></i> เวลา: 9:00 - 12:00 น.</p>
+    <p><i class="fas fa-users"></i> จำนวนที่เปิดรับ: 15 คน</p>
+    <p><i class="fas fa-user"></i> ชื่อผู้จัดงาน: ทีม CSR</p>
+    <p><i class="fas fa-map-marker-alt"></i> สถานที่: 1177 ถนนพหลโยธิน เขตพญาไท กรุงเทพมหานคร</p>
+    <a href="formdummy.html" class="line-button">เข้าร่วมกิจกรรม</a>
+</div>
+
+<!-- Popup 4 -->
+<div id="popup4" class="popup">
+    <span class="close-btn" onclick="closePopup('popup4')">&times;</span>
+    <h2>กิจกรรมสอนเด็กๆ</h2>
+    <p><i class="fas fa-calendar-alt"></i> วันที่: 30 กรกฎาคม 2567</p>
+    <p><i class="fas fa-clock"></i> เวลา: 9:00 - 12:00 น.</p>
+    <p><i class="fas fa-users"></i> จำนวนที่เปิดรับ: 10 คน</p>
+    <p><i class="fas fa-user"></i> ชื่อผู้จัดงาน: ทีม CSR</p>
+    <p><i class="fas fa-map-marker-alt"></i> สถานที่: 1177 ถนนพหลโยธิน เขตพญาไท กรุงเทพมหานคร</p>
+    <a href="formdummy.html" class="line-button">เข้าร่วมกิจกรรม</a>
+</div>
+
+    <script>
+        function goToMenu() {
+        window.location.href = 'menu.html';
+    }
+
+    function openPopup(popupId) {
+        document.getElementById(popupId).classList.add('active');
+    }
+
+    function closePopup(popupId) {
+        document.getElementById(popupId).classList.remove('active');
+    }
+
+    function goToConfirmPage() {
+        window.location.href = 'confirmPhoneNum.html';
+    }
+    </script>
+</body>
+</html>
+

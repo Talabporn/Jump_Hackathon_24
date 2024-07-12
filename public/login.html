@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Login with Phone Number</title>
+    <style>
+        body {
+            font-family: 'Sukhumvit Set', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(248, 111, 3, 0.5); /* Adjust alpha value to make it lighter */
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight:500;
+            font-size: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* margin-right: 70px; */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #F86F03;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #d95b00;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 25px;
+            margin: 0;
+            /* margin-bottom: 20px; */
+            border: 20px;
+        }
+
+        .icon {
+            font-size: 70px;
+            color: #F86F03;
+            margin-bottom: 20px;
+        }
+        .title-font{
+            margin-bottom: 20px;
+        }
+        .circle {
+            width: 200px; /* Adjust the size of the circles */
+            height: 200px; /* Adjust the size of the circles */
+            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            border-radius: 50%;
+            position: absolute;
+        }
+        .top-right {
+            top: -30px; /* Adjust the distance from the top */
+            right: -30px; /* Adjust the distance from the right */
+        }
+        .bottom-left {
+            bottom: -30px; /* Adjust the distance from the bottom */
+            left: -30px; /* Adjust the distance from the left */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <i class="fa-solid fa-mobile-screen-button icon"></i>
+        <div class="title-font">
+        <p>กรอกเบอร์โทรศัพท์ <br> เพื่อเข้าใช้งาน</p>
+    </div>
+        <form id="login-form">
+            <div class="input-group">
+                <!-- <label for="phone">เบอร์โทรศัพท์</label> -->
+                <p>เบอร์โทรศัพท์</p>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="circle top-right"></div>
+            <div class="circle bottom-left"></div>
+            <button class="btn-font-size" type="submit" style="font-size: 20px;">เข้าใช้งาน</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phoneInput = document.getElementById('phone').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (validatePhoneNumber(phoneInput)) {
+                errorMessage.textContent = '';
+                window.location.href = 'interest.html'; // Redirect to interest.html
+            } else {
+                errorMessage.textContent = 'Please enter a valid phone number.';
+            }
+        });
+
+        function validatePhoneNumber(phone) {
+            const phoneRegex = /^[0-9]{10}$/;
+            return phoneRegex.test(phone);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Fetch API</title>
+  </head>
+  <body>
+    <button onclick="fetchAPI()">Click to Send OTP</button>
+
+    <script>
+      async function fetchAPI() {
+        let fetchOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            msisdn: "66631954349", // หมายเลขโทรศัพท์ที่ต้องการส่ง OTP
+            service: "GS947", // รหัสบริการที่ถูกต้อง
+          }),
+        };
+
+        try {
+          const res = await fetch(
+            "http://localhost:8090/4WE/OTP/SEND",
+            fetchOption
+          );
+          const jsonObj = await res.json();
+          console.log(jsonObj); // แสดงผลลัพธ์ที่ได้ในคอนโซล
+
+          // ตรวจสอบสถานะการตอบกลับ
+          if (res.ok) {
+            alert("OTP Sent successfully!");
+          } else {
+            alert("Failed to send OTP. Please try again later.");
+          }
+        } catch (err) {
+          console.log(err);
+          alert(
+            "An error occurred while sending OTP. Please check the console for details."
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
